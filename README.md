@@ -13,7 +13,7 @@ Following principles are kept in mind while crafting this app.
 
 ## How to run
 
-1) Checkout project using git.
+1) Checkout project using git. (https://github.com/subinkoovery/TG-Coding-Test.git)
 2) Open terminal and go to project parent folder and go to 'preference-creator` folder.
 3) Run gradle build using below command, which will generate jar.
 
