@@ -28,7 +28,7 @@ gradle build
 docker network create preference-communication-network
 ```
 
-6)Run docker build to create docker-image using below command
+6) Run docker build to create docker-image using below command
 
 ```bash
 docker build -t preference-creator .
