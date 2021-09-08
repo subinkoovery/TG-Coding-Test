@@ -59,7 +59,7 @@ docker build -t preference-retriever .
 docker container run --network preference-communication-network --name preference-retriever -p 7001:7001 preference-retriever
 ```
 
-11) Now the 2 microservices are up , can try out the api through swagger mentioned in the below.
+11) Now the 2 microservices are up , can try out the api through swagger mentioned in 'API documentation' section.
 
 ## API documentation
 1) [Preference Creator](http://localhost:7000/swagger-ui/)
