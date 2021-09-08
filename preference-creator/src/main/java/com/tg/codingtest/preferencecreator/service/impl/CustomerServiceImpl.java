@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * * Service layer for customer operations
@@ -50,6 +52,33 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerRepository.save(customerEntity);
         return customer;
+    }
+
+    @Override
+    public CustomerDto getCustomer(Long customerId) {
+
+        CustomerEntity customerEntity = customerRepository.findById(customerId)
+                .orElseThrow(() -> new BusinessException(ExceptionType.CUSTOMER_DOES_NOT_EXIST));
+
+        return getCustomerDto(customerEntity);
+    }
+
+    public CustomerDto getCustomerDto(CustomerEntity customerEntity) {
+        return CustomerDto.builder()
+                .name(customerEntity.getName())
+                .userName(customerEntity.getUserName())
+                .id(customerEntity.getId())
+                .build();
+    }
+
+    @Override
+    public List<CustomerDto> getCustomerList() {
+
+        List<CustomerEntity> customerEntityList = (List<CustomerEntity>) customerRepository.findAll();
+
+        return customerEntityList.stream()
+                .map(this::getCustomerDto)
+                .collect(Collectors.toList());
     }
 
 }

@@ -7,13 +7,14 @@ Spring boot framework is used to create the microservices using H2 in-memory dat
 
 Following principles are kept in mind while crafting this app.
 
-1.	Object oriented design.
-2.	TDD (Test Driven Development)
-3.	Coding best practices, conventions and solid principles
+1.  Simple
+2.	Object oriented design.
+3.	RESTfullness 
+4.	Coding best practices, conventions and solid principles
 
 ## How to run
 
-1) Checkout project using git. (https://github.com/subinkoovery/TG-Coding-Test.git)
+1) Checkout project using git. [url here](https://github.com/subinkoovery/TG-Coding-Test.git)
 2) Open terminal and go to project parent folder and go to 'preference-creator` folder.
 3) Run gradle build using below command, which will generate jar.
 

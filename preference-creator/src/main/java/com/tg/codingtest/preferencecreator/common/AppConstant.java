@@ -10,5 +10,6 @@ public class AppConstant {
         public static final String BASE_URL="/api/v1";
         public static final String PREFERENCE="/preference";
         public static final String CUSTOMER="/customer";
+        public static final String CUSTOMER_ID="/{customerId}";
     }
 }
