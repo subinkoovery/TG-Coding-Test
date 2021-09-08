@@ -39,13 +39,20 @@ docker build -t preference-creator .
 ```bash
 docker container run --network preference-communication-network --name preference-creator -p 7000:7000 preference-creator
 ```
-8)  Similarly lets run the second microservice preference-retriever. Go to project parent folder and go to 'preference-retriever`  Run docker build to create docker-image using below command
+8)  Similarly lets run the second microservice preference-retriever. Go to project parent folder and go to 'preference-retriever' and run
+
+```bash
+gradle build
+```
+
+
+9)  Run docker build to create docker-image using below command
 
 ```bash
 docker build -t preference-retriever .
 ```
 
-9) Run docker image preference-retriever using as below
+10) Run docker image preference-retriever using as below
 
 ```bash
 docker container run --network preference-communication-network --name preference-retriever -p 7001:7001 preference-retriever
