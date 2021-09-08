@@ -4,7 +4,6 @@ import com.tg.codingtest.preferencecreator.common.AppConstant;
 import com.tg.codingtest.preferencecreator.model.CustomerDto;
 import com.tg.codingtest.preferencecreator.service.CustomerService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,7 @@ import static com.tg.codingtest.preferencecreator.common.AppConstant.URL.CUSTOME
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(AppConstant.URL.BASE_URL + AppConstant.URL.CUSTOMER)
-@Api("API to manage customer detail.")
+@Api(value = "Customer API", description = "API to manage customer detail.")
 public class CustomerController {
 
     private final CustomerService customerService;

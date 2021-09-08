@@ -1,6 +1,8 @@
 package com.tg.codingtest.preferenceretriever.model;
 
 import com.tg.codingtest.preferenceretriever.common.enums.PreferenceType;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,11 +17,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @Data
+@ApiModel("Preference detail")
 public class PreferenceDto {
 
+    @ApiModelProperty("Id of the customer")
     @NotNull
     private Long customerId;
+
+    @ApiModelProperty("Preference type of customer, available types: POST,EMAIL,SMS")
     @NotNull
     private PreferenceType preferenceType;
-    //Id of the operating-user who is doing operation.
 }
