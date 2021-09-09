@@ -4,7 +4,6 @@ DROP INDEX IF EXISTS customerId_PREFERENCEiNDEX;
 
 
 
-
 CREATE TABLE CUSTOMER (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   userName VARCHAR(64) NOT NULL,
@@ -28,3 +27,5 @@ CREATE TABLE PREFERENCE (
 );
 CREATE INDEX customerId_PREFERENCEiNDEX ON PREFERENCE(customerId);
 
+
+INSERT INTO CUSTOMER(id,userName,name,createdBy,creationTime,modifiedBy,modifiedTime) VALUES(1,'admin','Customer Preference Admin',1,CURRENT_TIMESTAMP(),NULL,NULL)
