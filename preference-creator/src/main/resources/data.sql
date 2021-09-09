@@ -27,4 +27,9 @@ CREATE TABLE PREFERENCE (
 );
 CREATE INDEX customerId_PREFERENCEiNDEX ON PREFERENCE(customer_Id);
 
-INSERT INTO CUSTOMER(id,user_Name,name,created_By,creation_Time,modified_By,modified_Time) VALUES(0,'admin','Customer Preference Admin',1,CURRENT_TIMESTAMP(),NULL,NULL)
+INSERT INTO CUSTOMER(id,user_Name,name,created_By,creation_Time,modified_By,modified_Time) VALUES(1,'admin','Customer Preference Admin',1,CURRENT_TIMESTAMP(),NULL,NULL);
+
+CREATE SEQUENCE HIBERNATE_SEQUENCE
+  START WITH 2
+  INCREMENT BY 1
+  MINVALUE 1;
