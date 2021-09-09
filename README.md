@@ -12,7 +12,7 @@ Following principles are kept in mind while crafting this app.
 3.	RESTfullness 
 4.	Coding best practices, conventions and solid principles
 
-## How to run
+## Compile and Run
 
 1) Checkout project using git. [url here](https://github.com/subinkoovery/TG-Coding-Test.git)
 2) Open terminal and go to project parent folder and go to 'preference-creator` folder.
@@ -66,7 +66,10 @@ docker container run --network preference-communication-network --name preferenc
 
 1) [Preference Retriever](http://localhost:7001/swagger-ui/)
 
+## Running unit test cases 
+Run unit test cases using below command for both preference-retriever and  preference-creator
+```bash
+gradle test
+```
 
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)

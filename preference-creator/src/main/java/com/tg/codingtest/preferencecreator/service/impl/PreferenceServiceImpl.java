@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import static com.tg.codingtest.preferencecreator.common.enums.ExceptionType.CUSTOMER_DOES_NOT_EXIST;
 import static com.tg.codingtest.preferencecreator.common.enums.ExceptionType.PREFERENCE_DOES_NOT_EXISTS;
@@ -37,25 +36,20 @@ public class PreferenceServiceImpl implements PreferenceService {
 
         log.info("Customer detail:'{}'", customerEntity);
 
-        Optional<PreferenceEntity> preferenceEntityOptional =
-                preferenceRepository.findByCustomer_Id(preferenceDto.getCustomerId());
+        //Throwing error if the preference already exists
+        preferenceRepository.findByCustomer_Id(preferenceDto.getCustomerId())
+                .ifPresent(preferenceEntity -> {
+                    throw new BusinessException(ExceptionType.PREFERENCE_ALREADY_EXISTS);
+                });
 
-        if (preferenceEntityOptional.isPresent()) {
+        PreferenceEntity preferenceEntity = PreferenceEntity.builder()
+                .preferenceType(preferenceDto.getPreferenceType())
+                .customer(customerEntity)
+                .creationTime(LocalDateTime.now())
+                .createdBy(preferenceDto.getCreatedOrUpdatedBy())
+                .build();
 
-            log.error("Preference already exists for this customer");
-            // Already existing preference is already available in DB, throwing error.
-            throw new BusinessException(ExceptionType.PREFERENCE_ALREADY_EXISTS);
-        } else {
-            PreferenceEntity preferenceEntity = PreferenceEntity.builder()
-                    .preferenceType(preferenceDto.getPreferenceType())
-                    .customer(customerEntity)
-                    .creationTime(LocalDateTime.now())
-                    .createdBy(preferenceDto.getCreatedOrUpdatedBy())
-                    .build();
-
-            preferenceRepository.save(preferenceEntity);
-
-        }
+        preferenceRepository.save(preferenceEntity);
 
 
     }
@@ -83,7 +77,7 @@ public class PreferenceServiceImpl implements PreferenceService {
                 .orElseThrow(() -> new BusinessException(PREFERENCE_DOES_NOT_EXISTS));
 
         return PreferenceDto.builder()
-                .customerId(customerId)
+                .customerId(customerEntity.getId())
                 .preferenceType(preferenceEntity.getPreferenceType())
                 .build();
     }
