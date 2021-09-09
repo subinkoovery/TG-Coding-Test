@@ -101,7 +101,7 @@ POST http://localhost:7000/api/v1/preference
 
 
 ```bash
- GET http://localhost:7001/api/v1/preference?customerId=1
+ GET http://localhost:7001/api/v1/preference?customerId=2
 ```
 
 
