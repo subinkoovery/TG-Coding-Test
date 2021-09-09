@@ -29,14 +29,13 @@ gradle build
 docker network create preference-communication-network
 ```
 
-6) Run docker build to create docker-image using below command
+6) Run docker build to create docker-image.
 
 ```bash
 docker build -t preference-creator .
 ```
 
-7) Run docker image preference-creator using as below
-
+7) Run docker image preference-creator.
 ```bash
 docker container run --network preference-communication-network --name preference-creator -p 7000:7000 preference-creator
 ```
@@ -47,13 +46,13 @@ gradle build
 ```
 
 
-9)  Run docker build to create docker-image using below command
+9)  Run docker build to create docker-image.
 
 ```bash
 docker build -t preference-retriever .
 ```
 
-10) Run docker image preference-retriever using as below
+10) Run docker image preference-retriever.
 
 ```bash
 docker container run --network preference-communication-network --name preference-retriever -p 7001:7001 preference-retriever
