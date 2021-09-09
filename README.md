@@ -4,7 +4,7 @@ Preference creator application is used to create and manage customer preference 
 There are two microservices that facilitate the same app, Customer Preference Creator and Customer Preference Retriever respectively.
 
 Spring boot framework is used to create the microservices using H2 in-memory database with  Spring data JPA, Swagger is used for api documentation.
-
+Java 11 is used to create both microservices. 
 Following principles are kept in mind while crafting this app.
 
 1.  Simple
@@ -22,7 +22,7 @@ gradle test
 
 1) Checkout project using git. [url here](https://github.com/subinkoovery/TG-Coding-Test.git)
 2) Open terminal and go to project parent folder and go to 'preference-creator` folder.
-3) Run gradle build using below command, which will generate jar.
+3) Run gradle build using below command, which will generate jar.(Please use jdk 11 to build project, or change the version in build.gradle)
 
 
 ```bash
