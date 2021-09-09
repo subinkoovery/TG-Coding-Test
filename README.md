@@ -12,6 +12,12 @@ Following principles are kept in mind while crafting this app.
 3.	RESTfullness 
 4.	Coding best practices, conventions and solid principles
 
+## Running unit test cases 
+Run unit test cases using below command for both preference-retriever and  preference-creator
+```bash
+gradle test
+```
+
 ## Compile and Run
 
 1) Checkout project using git. [url here](https://github.com/subinkoovery/TG-Coding-Test.git)
@@ -65,10 +71,37 @@ docker container run --network preference-communication-network --name preferenc
 
 1) [Preference Retriever](http://localhost:7001/swagger-ui/)
 
-## Running unit test cases 
-Run unit test cases using below command for both preference-retriever and  preference-creator
+## API notes
+Note : As soon as the application starts there will be a customer created with ID 1.
+
+
+1. Create a customer.
+
+
 ```bash
-gradle test
+POST http://localhost:7000/api/v1/customer
+{
+  "createdOrUpdatedBy": 1,
+  "name": "John Mathew",
+  "userName": "jomathew"
+}
+```
+2. Create customer preference.
+
+
+```bash
+POST http://localhost:7000/api/v1/preference
+{
+  "createdOrUpdatedBy": 1,
+  "customerId": 2,
+  "preferenceType": "EMAIL"
+}
+```
+3. Call Customer Preference Retriever to retrieve customer preference.
+
+
+```bash
+ GET http://localhost:7001/api/v1/preference?customerId=1
 ```
 
 
