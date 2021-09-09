@@ -6,26 +6,25 @@ DROP INDEX IF EXISTS customerId_PREFERENCEiNDEX;
 
 CREATE TABLE CUSTOMER (
   id INT AUTO_INCREMENT  PRIMARY KEY,
-  userName VARCHAR(64) NOT NULL,
+  user_Name VARCHAR(64) NOT NULL,
   name VARCHAR(255) NOT NULL,
-  createdBy INT NOT NULL,
-  creationTime DATETIME NOT NULL,
-  modifiedBy INT NULL,
-  modifiedTime DATETIME NULL
+  created_By INT NOT NULL,
+  creation_Time DATETIME NOT NULL,
+  modified_By INT NULL,
+  modified_Time DATETIME NULL
 );
 
 
 CREATE TABLE PREFERENCE (
   id INT AUTO_INCREMENT  PRIMARY KEY,
-  customerId INT NOT NULL,
-  preferenceType VARCHAR(25) NOT NULL,
-  createdBy INT NOT NULL,
-  creationTime DATETIME NOT NULL,
-  modifiedBy INT NULL,
-  modifiedTime DATETIME NULL,
-  FOREIGN KEY (customerId) REFERENCES CUSTOMER(ID)
+  customer_Id INT NOT NULL,
+  preference_Type VARCHAR(25) NOT NULL,
+  created_By INT NOT NULL,
+  creation_Time DATETIME NOT NULL,
+  modified_By INT NULL,
+  modified_Time DATETIME NULL,
+  FOREIGN KEY (customer_Id) REFERENCES CUSTOMER(ID)
 );
-CREATE INDEX customerId_PREFERENCEiNDEX ON PREFERENCE(customerId);
+CREATE INDEX customerId_PREFERENCEiNDEX ON PREFERENCE(customer_Id);
 
-
-INSERT INTO CUSTOMER(id,userName,name,createdBy,creationTime,modifiedBy,modifiedTime) VALUES(1,'admin','Customer Preference Admin',1,CURRENT_TIMESTAMP(),NULL,NULL)
+INSERT INTO CUSTOMER(id,user_Name,name,created_By,creation_Time,modified_By,modified_Time) VALUES(0,'admin','Customer Preference Admin',1,CURRENT_TIMESTAMP(),NULL,NULL)

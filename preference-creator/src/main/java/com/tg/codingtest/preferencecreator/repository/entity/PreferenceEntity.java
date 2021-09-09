@@ -22,12 +22,12 @@ public class PreferenceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId", referencedColumnName = "id")
     private CustomerEntity customer;
-
     private PreferenceType preferenceType;
 
     private Long modifiedBy;

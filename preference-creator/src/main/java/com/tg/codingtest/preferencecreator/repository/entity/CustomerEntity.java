@@ -21,11 +21,11 @@ public class CustomerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     private String userName;
     private String name;
-
     private Long modifiedBy;
     private Long createdBy;
     private LocalDateTime creationTime;
